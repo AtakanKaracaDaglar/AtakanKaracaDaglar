@@ -3,7 +3,6 @@ name: Generate Snake Contribution Grid
 on:
   schedule:
     - cron: "0 0 * * *"  # Her gün gece 00:00'da çalıştır
-
   workflow_dispatch:
 
 jobs:
@@ -18,11 +17,12 @@ jobs:
         uses: Platane/snk@master
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
+          svg_out_path: dist/github-contribution-grid-snake.svg  # 🔹 outputs yerine bunu kullan
 
       - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add dist/github-contribution-grid
+          git add dist/github-contribution-grid-snake.svg
+          git commit -m "Generate snake contribution grid" || exit 0
+          git push
