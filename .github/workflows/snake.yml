@@ -17,7 +17,7 @@ jobs:
         uses: Platane/snk@master
         with:
           github_user_name: ${{ github.repository_owner }}
-          svg_out_path: dist/github-contribution-grid-snake.svg  # 🔹 outputs yerine bunu kullan
+          svg_out_path: dist/github-contribution-grid-snake.svg  # ✅ outputs yerine svg_out_path kullanıldı
 
       - name: Commit and push if changed
         run: |
@@ -25,4 +25,4 @@ jobs:
           git config --global user.email "actions@github.com"
           git add dist/github-contribution-grid-snake.svg
           git commit -m "Generate snake contribution grid" || exit 0
-          git push
+          git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.repository }}.git" main
