@@ -22,9 +22,9 @@ jobs:
           github_username: ${{ github.repository_owner }}
           # İsteğe bağlı özelleştirmeler:
           enable_ghost_bricks: true
-          # paddle_color: "#006064"
-          # ball_color: "#006064"
-          # bricks_colors: "#e0f7fa,#b2ebf2,#4dd0e1,#0097a7,#006064"
+          paddle_color: "#006064"
+          ball_color: "#006064"
+          bricks_colors: "#e0f7fa,#b2ebf2,#4dd0e1,#0097a7,#006064"
 
       - name: Move generated SVGs to temp
         run: |
