@@ -2,7 +2,8 @@ name: generate breakout svg
 
 on:
   schedule:
-    - cron: "0 */24 * * *"   # günde 1
+  - cron: "0 * * * *"
+
   workflow_dispatch:         # elle tetikleme
 
 jobs:
@@ -20,18 +21,19 @@ jobs:
         uses: cyprieng/github-breakout@v1
         with:
           github_username: ${{ github.repository_owner }}
-          # İsteğe bağlı özelleştirmeler:
           enable_ghost_bricks: false
           bricks_colors: "#1e293b,#334155,#475569,#64748b,#94a3b8"
           paddle_color: "#94a3b8"
           ball_color: "#94a3b8"
 
 
+
       - name: Move generated SVGs to temp
         run: |
           mkdir -p /tmp/breakout-images
           mv output/light.svg /tmp/breakout-images/breakout-light.svg
-          mv output/dark.svg /tmp/breakout-images/breakout-dark.svg
+          mv output/dark.svg  /tmp/breakout-images/breakout-dark.svg
+          if [ -f output/custom.svg ]; then cp output/custom.svg /tmp/breakout-images/breakout-custom.svg; fi
 
       - name: Configure git
         run: |
