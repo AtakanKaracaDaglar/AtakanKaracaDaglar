@@ -2,15 +2,14 @@ name: generate breakout svg
 
 on:
   schedule:
-  - cron: "0 * * * *"
-
-  workflow_dispatch:         # elle tetikleme
+    - cron: "0 0 * * *"    # günde 1 (UTC 00:00)
+  workflow_dispatch:        # elle tetikleme
 
 jobs:
   generate-svg:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-    runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
@@ -22,19 +21,40 @@ jobs:
         with:
           github_username: ${{ github.repository_owner }}
           enable_ghost_bricks: false
-          bricks_colors: "#1e293b,#334155,#475569,#64748b,#94a3b8"
-          paddle_color: "#94a3b8"
-          ball_color: "#94a3b8"
+          # İstersen renkleri aç (custom.svg üretir):
+          # bricks_colors: "#1e293b,#334155,#475569,#64748b,#94a3b8"
+          # paddle_color:  "#94a3b8"
+          # ball_color:    "#94a3b8"
 
+      - name: Inspect output folder (debug)
+        run: |
+          echo "Listing output/"
+          ls -la output || true
 
-
-      - name: Move generated SVGs to temp
+      - name: Collect generated SVGs safely
         run: |
           mkdir -p /tmp/breakout-images
-          [ -f output/light.svg ]  && mv output/light.svg  /tmp/breakout-images/breakout-light.svg  || echo "no light.svg"
-          [ -f output/dark.svg ]   && mv output/dark.svg   /tmp/breakout-images/breakout-dark.svg   || echo "no dark.svg"
-          [ -f output/custom.svg ] && cp output/custom.svg /tmp/breakout-images/breakout-custom.svg || echo "no custom.svg"
 
+          # custom.svg varsa her ihtimale karşı 3 isimle de kopyala (README kırılmasın)
+          if [ -f output/custom.svg ]; then
+            cp output/custom.svg /tmp/breakout-images/breakout-custom.svg
+            cp output/custom.svg /tmp/breakout-images/breakout-light.svg
+            cp output/custom.svg /tmp/breakout-images/breakout-dark.svg
+          fi
+
+          # light/dark üretilmişse bunlar custom üstüne yazsın (tema duyarlı kullanım)
+          if [ -f output/light.svg ]; then
+            cp -f output/light.svg /tmp/breakout-images/breakout-light.svg
+          fi
+          if [ -f output/dark.svg ]; then
+            cp -f output/dark.svg /tmp/breakout-images/breakout-dark.svg
+          fi
+
+          echo "Resulting files:"
+          ls -la /tmp/breakout-images
+
+          # Hiç dosya yoksa maksatlı olarak fail et (kökten sorun varsa görelim)
+          test -e /tmp/breakout-images/breakout-light.svg || test -e /tmp/breakout-images/breakout-custom.svg
 
       - name: Configure git
         run: |
@@ -45,8 +65,8 @@ jobs:
         run: |
           git checkout --orphan github-breakout
           git rm -rf .
-          mkdir images
-          mv /tmp/breakout-images/* images/
+          mkdir -p images
+          cp /tmp/breakout-images/* images/ || true
           git add images
           git commit -m "chore: update GitHub breakout SVGs" || echo "No changes to commit"
           git push --force origin github-breakout
