@@ -18,9 +18,9 @@ Software Developer focused on backend systems, automation, and practical product
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=AtakanKaracaDaglar&bg_color=0d1117&color=58a6ff&line=58a6ff&point=f85149&area=true&hide_border=true&custom_title=Contribution%20Activity" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=AtakanKaracaDaglar&bg_color=ffffff&color=0969da&line=0969da&point=cf222e&area=true&hide_border=true&custom_title=Contribution%20Activity" />
-  <img alt="Contribution Activity Graph" src="https://github-readme-activity-graph.vercel.app/graph?username=AtakanKaracaDaglar&bg_color=0d1117&color=58a6ff&line=58a6ff&point=f85149&area=true&hide_border=true&custom_title=Contribution%20Activity" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AtakanKaracaDaglar&theme=github_dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AtakanKaracaDaglar&theme=github" />
+  <img alt="Contribution Overview" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AtakanKaracaDaglar&theme=github_dark" />
 </picture>
 
 </div>
