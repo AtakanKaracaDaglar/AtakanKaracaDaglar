@@ -19,7 +19,7 @@ jobs:
       - name: generate SVG
         uses: cyprieng/github-breakout@v1
         with:
-          github_username: ${{ AtakanKaracaDaglar }}
+          github_username: AtakanKaracaDaglar
           enable_ghost_bricks: false
           # İstersen renkleri aç (custom.svg üretir):
           # bricks_colors: "#1e293b,#334155,#475569,#64748b,#94a3b8"
