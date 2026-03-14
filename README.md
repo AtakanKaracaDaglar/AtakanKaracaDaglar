@@ -2,8 +2,6 @@
 
 # Hey, ben Atakan Karaca Daglar
 
-### Kod, tasarim ve yaraticilik tarafinda surekli level atlayan bir builder
-
 </div>
 
 <div align="center">
@@ -39,13 +37,7 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AtakanKaracaDaglar&layout=compact&hide_border=true" alt="Top Languages" />
 </div>
 
-## About Me
-
-- Software tarafinda performansli ve bakimi kolay sistemler kurmayi severim.
-- Frontend tarafta guclu deneyim + akici animasyon kombinasyonuna odaklanirim.
-- Her projede bir onceki versiyonumdan daha iyi bir sonuc cikarmayi hedeflerim.
-
 ## Connect
 
-- LinkedIn: www.linkedin.com/in/atakan-karaca-da%C4%9Flar
+- LinkedIn: [www.linkedin.com/in/AtakanKaracaDaglar](https://www.linkedin.com/in/atakankaracadaglar/)
 
