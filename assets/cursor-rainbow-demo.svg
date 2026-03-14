@@ -1,0 +1,32 @@
+<svg width="900" height="96" viewBox="0 0 900 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Color Cursor Trail Demo</title>
+  <desc id="desc">Animated rainbow dots that simulate color trails following a cursor.</desc>
+
+  <defs>
+    <linearGradient id="line" x1="0" y1="48" x2="900" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff2d55" />
+      <stop offset="0.33" stop-color="#ffcc00" />
+      <stop offset="0.66" stop-color="#34c759" />
+      <stop offset="1" stop-color="#0a84ff" />
+      <animateTransform attributeName="gradientTransform" type="translate" values="-120 0;120 0;-120 0" dur="4s" repeatCount="indefinite" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="96" rx="18" fill="#0d1117" />
+  <path d="M40 48 C180 8 320 88 460 48 C600 8 740 88 860 48" stroke="url(#line)" stroke-width="2" opacity="0.5" />
+
+  <g>
+    <circle r="5" fill="#ff2d55" opacity="0.95">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M40 48 C180 8 320 88 460 48 C600 8 740 88 860 48" />
+    </circle>
+    <circle r="4" fill="#ffcc00" opacity="0.8">
+      <animateMotion dur="3s" begin="-0.2s" repeatCount="indefinite" path="M40 48 C180 8 320 88 460 48 C600 8 740 88 860 48" />
+    </circle>
+    <circle r="3.5" fill="#34c759" opacity="0.65">
+      <animateMotion dur="3s" begin="-0.35s" repeatCount="indefinite" path="M40 48 C180 8 320 88 460 48 C600 8 740 88 860 48" />
+    </circle>
+    <circle r="3" fill="#0a84ff" opacity="0.5">
+      <animateMotion dur="3s" begin="-0.5s" repeatCount="indefinite" path="M40 48 C180 8 320 88 460 48 C600 8 740 88 860 48" />
+    </circle>
+  </g>
+</svg>

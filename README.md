@@ -1,8 +1,6 @@
 <div align="center">
 
-# Atakan Karaca Daglar
-
-Software Developer focused on backend systems, automation, and practical product engineering.
+<img src="./assets/rbg-wave.svg" alt="Atakan Karaca Daglar" width="900" />
 
 </div>
 

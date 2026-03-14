@@ -1,0 +1,54 @@
+<svg width="900" height="180" viewBox="0 0 900 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Atakan Karaca Daglar Animated Wave Title</title>
+  <desc id="desc">Atakan Karaca Daglar text with animated RGB gradient and wave distortion.</desc>
+
+  <defs>
+    <linearGradient id="rgbShift" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff2d55">
+        <animate attributeName="stop-color" values="#ff2d55;#ff9500;#ff2d55" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#34c759">
+        <animate attributeName="stop-color" values="#34c759;#0a84ff;#34c759" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#0a84ff">
+        <animate attributeName="stop-color" values="#0a84ff;#af52de;#0a84ff" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-1 0;1 0;-1 0" dur="5s" repeatCount="indefinite" />
+    </linearGradient>
+
+    <filter id="wavy" x="-20%" y="-40%" width="140%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01 0.04" numOctaves="2" seed="8" result="noise">
+        <animate attributeName="baseFrequency" values="0.01 0.04;0.02 0.06;0.01 0.04" dur="4.8s" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G">
+        <animate attributeName="scale" values="6;11;6" dur="3.6s" repeatCount="indefinite" />
+      </feDisplacementMap>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="180" rx="24" fill="#0d1117" />
+
+  <g filter="url(#softGlow)">
+    <text
+      x="450"
+      y="112"
+      text-anchor="middle"
+      font-size="64"
+      font-weight="900"
+      font-family="Segoe UI, Arial, sans-serif"
+      letter-spacing="2"
+      fill="url(#rgbShift)"
+      filter="url(#wavy)"
+    >
+      Atakan Karaca Daglar
+    </text>
+  </g>
+</svg>
